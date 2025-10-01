@@ -52,7 +52,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center gap-2 hover-glow">
             {/* <Code2 className="h-6 w-6 text-primary" /> */}
             <span className="text-xl font-bold text-gradient-primary">
-              Aristide GBOHAÏDA
+              Eboun-Oluwa
             </span>
           </Link>
 
