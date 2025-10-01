@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Timeline from '@/components/Timeline';
+import { Helmet } from 'react-helmet-async';
 
 const Experience = () => {
   const experiences = [
@@ -61,6 +62,12 @@ const Experience = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
+
+      <Helmet>
+        <title>Expérience — Aristide GBOHAÏDA</title>
+        <meta name="description" content="Expériences professionnelles et formation d'Aristide GBOHAÏDA." />
+        <meta property="og:image" content="/image.jpeg" />
+      </Helmet>
 
       {/* Hero */}
       <section className="pt-32 pb-20 gradient-subtle">

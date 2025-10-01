@@ -86,6 +86,7 @@ const Projects = () => {
       <Helmet>
         <title>Projets — Aristide GBOHAÏDA</title>
         <meta name="description" content="Sélection de projets: fullstack, frontend, backend et mobile." />
+        <meta property="og:image" content="/image.jpeg" />
       </Helmet>
       <Navbar />
 

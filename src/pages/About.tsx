@@ -26,6 +26,7 @@ const About = () => {
       <Helmet>
         <title>À propos — Aristide GBOHAÏDA</title>
         <meta name="description" content="Parcours, compétences techniques et soft skills d'Aristide GBOHAÏDA." />
+        <meta property="og:image" content="/image.jpeg" />
       </Helmet>
       <Navbar />
 
@@ -66,6 +67,40 @@ const About = () => {
                   d'apprentissage et de croissance.
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sections personnelles */}
+      <section className="py-20 bg-muted/30 animate-in fade-in-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-card rounded-2xl p-6 border border-border shadow-card hover-lift transition-transform duration-300 animate-in fade-in-50 slide-in-from-bottom-2">
+              <h3 className="text-xl font-semibold mb-3">Personnalité</h3>
+              <ul className="text-muted-foreground space-y-2 list-disc pl-5">
+                <li>Curieux, calme et persévérant.</li>
+                <li>J’aime comprendre avant d’agir.</li>
+                <li>J’apprends vite et j’aime partager.</li>
+              </ul>
+            </div>
+
+            <div className="bg-card rounded-2xl p-6 border border-border shadow-card hover-lift transition-transform duration-300 animate-in fade-in-50 slide-in-from-bottom-2">
+              <h3 className="text-xl font-semibold mb-3">Valeurs</h3>
+              <ul className="text-muted-foreground space-y-2 list-disc pl-5">
+                <li>Simplicité: des solutions lisibles et durables.</li>
+                <li>Fiabilité: tests et clarté avant la complexité.</li>
+                <li>Respect: communication nette et bienveillante.</li>
+              </ul>
+            </div>
+
+            <div className="bg-card rounded-2xl p-6 border border-border shadow-card hover-lift transition-transform duration-300 animate-in fade-in-50 slide-in-from-bottom-2">
+              <h3 className="text-xl font-semibold mb-3">Ce que j’aime en tech</h3>
+              <ul className="text-muted-foreground space-y-2 list-disc pl-5">
+                <li>Résoudre de vrais problèmes avec du code utile.</li>
+                <li>Node.js, TypeScript, React.</li>
+                <li>Automatiser ce qui est répétitif.</li>
+              </ul>
             </div>
           </div>
         </div>

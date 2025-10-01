@@ -92,7 +92,7 @@ const Index = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-6">
               <div className="w-32 h-32 mx-auto rounded-full bg-gradient-primary p-1 shadow-elegant">
-                <img src="/image.jpeg" alt="Photo de profil" className="w-full h-full rounded-full object-cover" decoding="async" />
+                <img src="/image.jpeg" alt="Photo de profil" className="w-full h-full rounded-full object-cover" decoding="async" loading="lazy" />
               </div>
             </div>
 
