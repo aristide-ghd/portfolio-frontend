@@ -13,7 +13,7 @@ interface TimelineProps {
 
 const Timeline = ({ items, type }: TimelineProps) => {
   return (
-    <div className="relative">
+    <div className="relative -ml-2 md:ml-0">
       {/* Vertical Line */}
       <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border" />
 
