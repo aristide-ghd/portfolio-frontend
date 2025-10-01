@@ -36,8 +36,10 @@ const Timeline = ({ items, type }: TimelineProps) => {
             <div className="flex-1 bg-card rounded-lg p-6 border border-border shadow-card hover-lift -ml-1 md:-ml-2 min-w-0 w-full">
               <div className="flex items-start justify-between gap-2 mb-2">
                 <div className="min-w-0 flex-1">
-                  <h3 className="text-xl font-semibold break-words">{item.title}</h3>
-                  <p className="text-primary font-medium break-words">{item.organization}</p>
+                  <h3 className="text-xl font-semibold break-words leading-snug">{item.title}</h3>
+                  <p className="text-primary font-medium break-words leading-snug whitespace-normal">
+                    {item.organization}
+                  </p>
                 </div>
                 <span className="text-sm font-medium text-muted-foreground bg-muted px-3 py-1 rounded-full flex-shrink-0">
                   {item.year}
