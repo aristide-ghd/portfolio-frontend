@@ -20,7 +20,7 @@ const Timeline = ({ items, type }: TimelineProps) => {
       {/* Items */}
       <div className="space-y-8">
         {items.map((item, index) => (
-          <div key={index} className="relative flex gap-6">
+          <div key={index} className="relative flex gap-4">
             {/* Dot */}
             <div className="relative z-10 flex-shrink-0">
               <div className="w-16 h-16 rounded-full bg-card border-4 border-primary shadow-elegant flex items-center justify-center">
@@ -33,7 +33,7 @@ const Timeline = ({ items, type }: TimelineProps) => {
             </div>
 
             {/* Content */}
-            <div className="flex-1 bg-card rounded-lg p-6 border border-border shadow-card hover-lift">
+            <div className="flex-1 bg-card rounded-lg p-6 border border-border shadow-card hover-lift -ml-1 md:-ml-2">
               <div className="flex items-start justify-between mb-2">
                 <div>
                   <h3 className="text-xl font-semibold">{item.title}</h3>
