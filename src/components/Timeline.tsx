@@ -13,7 +13,7 @@ interface TimelineProps {
 
 const Timeline = ({ items, type }: TimelineProps) => {
   return (
-    <div className="relative">
+    <div className="relative overflow-x-hidden">
       {/* Vertical Line */}
       <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border" />
 
@@ -33,17 +33,17 @@ const Timeline = ({ items, type }: TimelineProps) => {
             </div>
 
             {/* Content */}
-            <div className="flex-1 bg-card rounded-lg p-6 border border-border shadow-card hover-lift -ml-1 md:-ml-2">
-              <div className="flex items-start justify-between mb-2">
-                <div>
-                  <h3 className="text-xl font-semibold">{item.title}</h3>
-                  <p className="text-primary font-medium">{item.organization}</p>
+            <div className="flex-1 bg-card rounded-lg p-6 border border-border shadow-card hover-lift -ml-1 md:-ml-2 min-w-0 w-full">
+              <div className="flex items-start justify-between gap-2 mb-2">
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-xl font-semibold break-words">{item.title}</h3>
+                  <p className="text-primary font-medium break-words">{item.organization}</p>
                 </div>
-                <span className="text-sm font-medium text-muted-foreground bg-muted px-3 py-1 rounded-full">
+                <span className="text-sm font-medium text-muted-foreground bg-muted px-3 py-1 rounded-full flex-shrink-0">
                   {item.year}
                 </span>
               </div>
-              <p className="text-muted-foreground">{item.description}</p>
+              <p className="text-muted-foreground break-words">{item.description}</p>
             </div>
           </div>
         ))}
