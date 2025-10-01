@@ -97,7 +97,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div id="mobile-menu" className="md:hidden py-4 border-t border-border bg-background/95 backdrop-blur-md shadow-card">
+          <div id="mobile-menu" className="md:hidden my-3 mx-4 py-4 border border-border bg-background/95 backdrop-blur-md shadow-card rounded-2xl overflow-hidden">
             <div className="flex flex-col gap-2 mt-2">
               {navLinks.map((link) => (
                 <Link
