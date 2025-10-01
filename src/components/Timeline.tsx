@@ -13,14 +13,14 @@ interface TimelineProps {
 
 const Timeline = ({ items, type }: TimelineProps) => {
   return (
-    <div className="relative overflow-x-hidden">
+    <div className="relative">
       {/* Vertical Line */}
       <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border" />
 
       {/* Items */}
       <div className="space-y-8">
         {items.map((item, index) => (
-          <div key={index} className="relative flex gap-4">
+          <div key={index} className="relative flex gap-6">
             {/* Dot */}
             <div className="relative z-10 flex-shrink-0">
               <div className="w-16 h-16 rounded-full bg-card border-4 border-primary shadow-elegant flex items-center justify-center">
@@ -33,19 +33,17 @@ const Timeline = ({ items, type }: TimelineProps) => {
             </div>
 
             {/* Content */}
-            <div className="flex-1 bg-card rounded-lg p-6 border border-border shadow-card hover-lift -ml-1 md:-ml-2 min-w-0 w-full">
-              <div className="flex items-start justify-between gap-2 mb-2">
-                <div className="min-w-0 flex-1">
-                  <h3 className="text-xl font-semibold break-words leading-snug">{item.title}</h3>
-                  <p className="text-primary font-medium break-words leading-snug whitespace-normal">
-                    {item.organization}
-                  </p>
+            <div className="flex-1 bg-card rounded-lg p-6 border border-border shadow-card hover-lift">
+              <div className="flex items-start justify-between mb-2">
+                <div>
+                  <h3 className="text-xl font-semibold">{item.title}</h3>
+                  <p className="text-primary font-medium">{item.organization}</p>
                 </div>
-                <span className="text-sm font-medium text-muted-foreground bg-muted px-3 py-1 rounded-full flex-shrink-0">
+                <span className="text-sm font-medium text-muted-foreground bg-muted px-3 py-1 rounded-full">
                   {item.year}
                 </span>
               </div>
-              <p className="text-muted-foreground break-words">{item.description}</p>
+              <p className="text-muted-foreground">{item.description}</p>
             </div>
           </div>
         ))}
