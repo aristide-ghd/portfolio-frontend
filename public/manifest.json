@@ -1,27 +1,8 @@
 {
-  "name": "Aristide GBOHAÏDA - Portfolio",
-  "short_name": "Portfolio Aristide",
-  "description": "Portfolio professionnel d'Aristide GBOHAÏDA - Développeur Backend & Fullstack",
+  "name": "Portfolio",
+  "short_name": "Portfolio",
+  "description": "Site web personnel",
   "start_url": "/",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#667eea",
-  "orientation": "portrait-primary",
-  "icons": [
-    {
-      "src": "/image.jpeg",
-      "sizes": "192x192",
-      "type": "image/jpeg",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "/image.jpeg",
-      "sizes": "512x512",
-      "type": "image/jpeg",
-      "purpose": "maskable any"
-    }
-  ],
-  "categories": ["portfolio", "developer", "business"],
-  "lang": "fr",
-  "dir": "ltr"
+  "display": "browser",
+  "icons": []
 }
