@@ -81,11 +81,13 @@ const Index = () => {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[70vh] md:min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img src={heroImage} alt="Hero" className="w-full h-full object-cover opacity-10" decoding="async" fetchPriority="high" />
           <div className="absolute inset-0 gradient-subtle" />
+          {/* Overlay to improve text contrast on all devices */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/10 pointer-events-none" />
         </div>
 
         {/* Content */}
@@ -93,7 +95,7 @@ const Index = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-6">
               <div className="w-32 h-32 mx-auto rounded-full bg-gradient-primary p-1 shadow-elegant">
-                <img src="/image.jpeg" alt="Photo de profil" className="w-full h-full rounded-full object-cover" decoding="async" loading="lazy" />
+                <img src="/image.jpeg" alt="Portrait d'Aristide GBOHAÏDA" className="w-full h-full rounded-full object-cover" decoding="async" loading="lazy" />
               </div>
             </div>
 

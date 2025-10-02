@@ -69,8 +69,8 @@ const Experience = () => {
         <meta property="og:image" content="/image.jpeg" />
       </Helmet>
 
-      {/* Hero */}
-      <section className="pt-32 pb-20 gradient-subtle">
+  {/* Hero */}
+  <section className="pt-20 md:pt-32 pb-20 gradient-subtle">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">Mon Parcours</h1>
