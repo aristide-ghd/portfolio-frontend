@@ -7,9 +7,11 @@ import SkillBadge from '@/components/SkillBadge';
 import ProjectCard from '@/components/ProjectCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import InstallPrompt from '@/components/InstallPrompt';
 import heroImage from '@/assets/hero-bg.jpg';
 import project1 from '@/assets/project1.jpg';
-import project2 from '@/assets/project2.jpg';
+// import project2 from '@/assets/project2.jpg';
+import tchatboxMockup from '@/assets/tchatbox-mockup.svg';
 import project3 from '@/assets/project3.jpg';
 
 const Index = () => {
@@ -38,13 +40,13 @@ const Index = () => {
       featured: true,
     },
     {
-      title: 'E-Commerce Mobile',
+      title: 'TchatBox 💬',
       description:
-        'Application mobile de commerce électronique avec panier, paiements sécurisés et suivi des commandes.',
-      image: project2,
-      tags: ['React Native', 'Firebase', 'Stripe'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
+        'Messagerie instantanée moderne et fluide ! Connectez-vous, discutez en temps réel avec vos amis, créez des conversations privées sécurisées. Interface élégante et responsive pour une expérience utilisateur optimale.',
+      image: tchatboxMockup,
+      tags: ['Node.js', 'Express', 'Socket.IO', 'MongoDB'],
+      githubUrl: 'https://github.com/aristide-ghd/TchatBox-Frontend',
+      liveUrl: 'https://tchat-box-frontend.vercel.app/',
     },
     {
       title: 'API REST Microservices',
@@ -232,6 +234,7 @@ const Index = () => {
       </section>
 
       <Footer />
+      <InstallPrompt />
     </div>
   );
 };

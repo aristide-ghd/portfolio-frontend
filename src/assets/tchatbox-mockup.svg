@@ -1,0 +1,67 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="600" height="400" fill="url(#gradient1)"/>
+  
+  <!-- Gradient definitions -->
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#43e97b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38f9d7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Phone mockup -->
+  <rect x="100" y="50" width="400" height="300" rx="30" ry="30" fill="white" stroke="#e2e8f0" stroke-width="3"/>
+  
+  <!-- Header -->
+  <rect x="120" y="70" width="360" height="60" rx="20" ry="20" fill="#1e293b"/>
+  <circle cx="160" cy="100" r="20" fill="url(#gradient2)"/>
+  <text x="195" y="95" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">TchatBox</text>
+  <text x="195" y="110" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8">En ligne</text>
+  <circle cx="450" cy="100" r="5" fill="#22c55e"/>
+  
+  <!-- Messages -->
+  <!-- Message 1 (received) -->
+  <rect x="140" y="160" width="240" height="45" rx="22" ry="22" fill="#f1f5f9"/>
+  <text x="155" y="180" font-family="Arial, sans-serif" font-size="16" fill="#334155">Salut ! Comment ça va ?</text>
+  <text x="155" y="195" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">14:32</text>
+  
+  <!-- Message 2 (sent) -->
+  <rect x="220" y="220" width="240" height="45" rx="22" ry="22" fill="url(#gradient2)"/>
+  <text x="235" y="240" font-family="Arial, sans-serif" font-size="16" fill="white">Très bien ! Et toi ?</text>
+  <text x="420" y="255" font-family="Arial, sans-serif" font-size="12" fill="rgba(255,255,255,0.8)">14:33</text>
+  
+  <!-- Message 3 (received) -->
+  <rect x="140" y="280" width="260" height="45" rx="22" ry="22" fill="#f1f5f9"/>
+  <text x="155" y="300" font-family="Arial, sans-serif" font-size="16" fill="#334155">Super ! On se voit ce soir ?</text>
+  <text x="155" y="315" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8">14:35</text>
+  
+  <!-- Typing indicator -->
+  <rect x="140" y="340" width="100" height="25" rx="12" ry="12" fill="#e2e8f0"/>
+  <circle cx="160" cy="352" r="3" fill="#64748b">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="175" cy="352" r="3" fill="#64748b">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" begin="0.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="190" cy="352" r="3" fill="#64748b">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" begin="0.4s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Chat icons -->
+  <circle cx="520" cy="80" r="12" fill="url(#gradient3)"/>
+  <path d="M512 76 l16 0 l-8 8 z" fill="white"/>
+  
+  <!-- Online indicators -->
+  <circle cx="540" cy="160" r="6" fill="#22c55e"/>
+  <circle cx="540" cy="180" r="6" fill="#22c55e"/>
+  <circle cx="540" cy="200" r="6" fill="#94a3b8"/>
+</svg>
