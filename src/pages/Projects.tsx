@@ -6,6 +6,7 @@ import ProjectCard from '@/components/ProjectCard';
 import { Button } from '@/components/ui/button';
 import project1 from '@/assets/project1.jpg';
 import project2 from '@/assets/project2.jpg';
+import imageTchat from '@/assets/imgTchat.png';
 import project3 from '@/assets/project3.jpg';
 
 const Projects = () => {
@@ -45,14 +46,13 @@ const Projects = () => {
       githubUrl: 'https://github.com',
     },
     {
-      title: 'Portfolio Website',
+      title: 'TchatBox 💬',
       description:
-        'Site portfolio moderne et responsive avec animations fluides, design épuré et optimisation SEO pour une excellente visibilité en ligne.',
-      image: project1,
-      tags: ['Next.js', 'TailwindCSS', 'Framer Motion'],
-      category: 'Frontend',
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
+        'Messagerie instantanée moderne et fluide ! Connectez-vous, discutez en temps réel avec vos amis, créez des conversations privées sécurisées. Interface élégante et responsive pour une expérience utilisateur optimale.',
+      image: imageTchat,
+      tags: ['Node.js', 'Express', 'Socket.IO', 'MongoDB'],
+      githubUrl: 'https://github.com/aristide-ghd/TchatBox-Frontend',
+      liveUrl: 'https://tchat-box-frontend.vercel.app/',
     },
     {
       title: 'Task Management App',

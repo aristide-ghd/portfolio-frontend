@@ -10,8 +10,7 @@ import Footer from '@/components/Footer';
 import InstallPrompt from '@/components/InstallPrompt';
 import heroImage from '@/assets/hero-bg.jpg';
 import project1 from '@/assets/project1.jpg';
-// import project2 from '@/assets/project2.jpg';
-import tchatboxMockup from '@/assets/tchatbox-mockup.svg';
+import imageTchat from '@/assets/imgTchat.png';
 import project3 from '@/assets/project3.jpg';
 
 const Index = () => {
@@ -43,7 +42,7 @@ const Index = () => {
       title: 'TchatBox 💬',
       description:
         'Messagerie instantanée moderne et fluide ! Connectez-vous, discutez en temps réel avec vos amis, créez des conversations privées sécurisées. Interface élégante et responsive pour une expérience utilisateur optimale.',
-      image: tchatboxMockup,
+      image: imageTchat,
       tags: ['Node.js', 'Express', 'Socket.IO', 'MongoDB'],
       githubUrl: 'https://github.com/aristide-ghd/TchatBox-Frontend',
       liveUrl: 'https://tchat-box-frontend.vercel.app/',

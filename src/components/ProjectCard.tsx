@@ -32,7 +32,7 @@ const ProjectCard = ({
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover transition-smooth group-hover:scale-110"
+          className="w-full h-full object-cover object-center transition-smooth transform-gpu group-hover:scale-105"
           loading="lazy"
           decoding="async"
         />
