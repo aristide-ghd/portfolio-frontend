@@ -25,7 +25,7 @@ const Timeline = ({ items, type }: TimelineProps) => {
             <div className="relative z-10 flex-shrink-0">
               <div className="w-16 h-16 rounded-full bg-card border-4 border-primary shadow-elegant flex items-center justify-center">
                 {item.logo ? (
-                  <img src={item.logo} alt={item.organization} className="w-8 h-8 object-contain" />
+                  <img src={item.logo} alt={item.organization} className="w-8 h-8 object-contain" loading="lazy" decoding="async" />
                 ) : (
                   <span className="text-lg font-bold text-primary">{item.year.slice(-2)}</span>
                 )}

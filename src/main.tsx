@@ -8,7 +8,8 @@ createRoot(document.getElementById("root")!).render(<App />);
 if (import.meta.env.PROD && 'serviceWorker' in navigator) {
 	window.addEventListener('load', () => {
 		navigator.serviceWorker.register('/sw.js')
-			.then((registration) => console.log('SW registered: ', registration))
-			.catch((err) => console.log('SW registration failed: ', err));
+				.catch(() => {
+					/* Registration errors intentionally ignored in production to avoid noisy logs */
+				});
 	});
 }

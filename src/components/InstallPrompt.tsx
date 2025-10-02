@@ -30,7 +30,6 @@ export default function InstallPrompt() {
     const choice = await deferredPrompt.userChoice;
     setVisible(false);
     setDeferredPrompt(null);
-    console.log('PWA install choice', choice.outcome);
   };
 
   if (!visible) return null;
