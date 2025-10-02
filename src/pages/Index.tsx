@@ -85,9 +85,8 @@ const Index = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img src={heroImage} alt="Hero" className="w-full h-full object-cover opacity-10" decoding="async" fetchPriority="high" />
-          <div className="absolute inset-0 gradient-subtle" />
-          {/* Overlay to improve text contrast on all devices */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/10 pointer-events-none" />
+          {/* Stronger overlay to ensure text readability on top of the hero image */}
+          <div className="absolute inset-0 bg-black/60 md:bg-black/40 pointer-events-none" />
         </div>
 
         {/* Content */}
