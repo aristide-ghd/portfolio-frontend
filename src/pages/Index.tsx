@@ -7,6 +7,7 @@ import SkillBadge from '@/components/SkillBadge';
 import ProjectCard from '@/components/ProjectCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import InstallPrompt from '@/components/InstallPrompt';
 import heroImage from '@/assets/hero-bg.jpg';
 import project1 from '@/assets/project1.jpg';
 // import project2 from '@/assets/project2.jpg';
@@ -232,7 +233,8 @@ const Index = () => {
         </div>
       </section>
 
-    <Footer />
+  <Footer />
+  <InstallPrompt />
     </div>
   );
 };

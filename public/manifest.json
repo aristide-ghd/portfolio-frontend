@@ -1,8 +1,23 @@
 {
-  "name": "Portfolio",
-  "short_name": "Portfolio",
-  "description": "Site web personnel",
-  "start_url": "/",
-  "display": "browser",
-  "icons": []
+  "name": "Aristide GBOHAÏDA - Portfolio",
+  "short_name": "Aristide",
+  "description": "Portfolio professionnel d'Aristide GBOHAÏDA",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#667eea",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/image.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/image.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
 }
