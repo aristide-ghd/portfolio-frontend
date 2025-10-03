@@ -1,9 +1,8 @@
-import { createContext, useContext, useEffect, useState } from 'react';
-
-type Theme = 'dark' | 'light' | 'system';
+import React, { createContext, useEffect, useState, useCallback, useMemo, ReactNode } from 'react';
+import type { Theme } from '../hooks/useTheme'; // import du type Theme depuis le hook
 
 type ThemeProviderProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   defaultTheme?: Theme;
   storageKey?: string;
 };
@@ -13,60 +12,84 @@ type ThemeProviderState = {
   setTheme: (theme: Theme) => void;
 };
 
-const initialState: ThemeProviderState = {
-  theme: 'system',
-  setTheme: () => null,
-};
-
-const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
+const ThemeProviderContext = createContext<ThemeProviderState | undefined>(undefined);
 
 export function ThemeProvider({
   children,
   defaultTheme = 'system',
   storageKey = 'portfolio-theme',
-  ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
-  );
+  // Initialisation avec valeur du localStorage si possible
+  const [theme, setThemeState] = useState<Theme>(() => {
+    if (typeof window === 'undefined') return defaultTheme;
+    try {
+      const raw = localStorage.getItem(storageKey) as Theme | null;
+      if (raw === 'dark' || raw === 'light' || raw === 'system') return raw;
+    } catch (err) {
+      console.warn('ThemeProvider: impossible de lire localStorage', err);
+    }
+    return defaultTheme;
+  });
 
+  // Application du thème sur <html>
   useEffect(() => {
-    const root = window.document.documentElement;
+    const root = document.documentElement;
 
-    root.classList.remove('light', 'dark');
+    const appliquerTheme = (t: Theme) => {
+      root.classList.remove('light', 'dark');
+      if (t === 'system') {
+        const sys = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        root.classList.add(sys);
+      } else {
+        root.classList.add(t);
+      }
+    };
 
-    if (theme === 'system') {
-      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark'
-        : 'light';
+    appliquerTheme(theme);
 
-      root.classList.add(systemTheme);
-      return;
+    let mql: MediaQueryList | null = null;
+    const handler = () => {
+      if (theme === 'system') appliquerTheme('system');
+    };
+
+    if (theme === 'system' && window.matchMedia) {
+      mql = window.matchMedia('(prefers-color-scheme: dark)');
+      if (typeof mql.addEventListener === 'function') {
+        mql.addEventListener('change', handler);
+      } else if (typeof mql.addListener === 'function') {
+        mql.addListener(handler);
+      }
     }
 
-    root.classList.add(theme);
+    return () => {
+      if (mql) {
+        if (typeof mql.removeEventListener === 'function') {
+          mql.removeEventListener('change', handler);
+        } else if (typeof mql.removeListener === 'function') {
+          mql.removeListener(handler);
+        }
+      }
+    };
   }, [theme]);
 
-  const value = {
-    theme,
-    setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme);
-      setTheme(theme);
+  // Setter du thème + stockage local
+  const setTheme = useCallback(
+    (t: Theme) => {
+      try {
+        if (typeof window !== 'undefined') {
+          localStorage.setItem(storageKey, t);
+        }
+      } catch (err) {
+        console.warn('ThemeProvider: impossible d’écrire dans le localStorage', err);
+      }
+      setThemeState(t);
     },
-  };
-
-  return (
-    <ThemeProviderContext.Provider {...props} value={value}>
-      {children}
-    </ThemeProviderContext.Provider>
+    [storageKey]
   );
+
+  const value = useMemo(() => ({ theme, setTheme }), [theme, setTheme]);
+
+  return <ThemeProviderContext.Provider value={value}>{children}</ThemeProviderContext.Provider>;
 }
 
-export const useTheme = () => {
-  const context = useContext(ThemeProviderContext);
-
-  if (context === undefined)
-    throw new Error('useTheme must be used within a ThemeProvider');
-
-  return context;
-};
+export { ThemeProviderContext };

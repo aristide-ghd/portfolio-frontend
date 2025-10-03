@@ -24,6 +24,21 @@
     <link rel="apple-touch-icon" href="/image.jpeg" />
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#667eea" />
+
+    <!-- Préchargement du thème pour éviter le flash -->
+    <script>
+      (function() {
+        const storageKey = 'portfolio-theme';
+        const defaultTheme = 'system';
+        let theme = localStorage.getItem(storageKey) || defaultTheme;
+
+        if (theme === 'system') {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        document.documentElement.classList.add(theme);
+      })();
+    </script>
   </head>
 
   <body>

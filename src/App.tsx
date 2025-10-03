@@ -5,7 +5,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import { ThemeProvider } from "@/components/ThemeProvider"; // ✅ importer ThemeProvider
+import { useTheme } from './hooks/useTheme';
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
@@ -14,6 +15,12 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+
+function Content() {
+  const { theme } = useTheme();
+  // return <div>Thème actuel : {theme}</div>;
+  console.log('Thème actuel :', theme);
+}
 
 function ScrollToTop() {
   const location = useLocation();
@@ -26,7 +33,9 @@ function ScrollToTop() {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <HelmetProvider>
+      {/* ✅ Utiliser ThemeProvider ici */}
       <ThemeProvider defaultTheme="system" storageKey="portfolio-theme">
+        {/* <Content /> */}
         <TooltipProvider>
           <Toaster />
           <Sonner />
@@ -38,7 +47,6 @@ const App = () => (
               <Route path="/projects" element={<Projects />} />
               <Route path="/experience" element={<Experience />} />
               <Route path="/contact" element={<Contact />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
