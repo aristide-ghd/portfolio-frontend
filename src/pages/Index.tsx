@@ -86,7 +86,7 @@ const Index = () => {
         <div className="absolute inset-0 z-0">
           <img src={heroImage} alt="Hero" className="w-full h-full object-cover opacity-10" decoding="async" fetchPriority="high" />
           {/* Stronger overlay to ensure text readability on top of the hero image */}
-          <div className="absolute inset-0 bg-black/60 md:bg-black/40 pointer-events-none" />
+          <div className="absolute inset-0 bg-black/20 dark:bg-black/40 pointer-events-none" />
         </div>
 
         {/* Content */}
@@ -107,7 +107,7 @@ const Index = () => {
               <TypewriterText texts={roles} className="font-semibold" />
             </div>
 
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-800 dark:text-gray-200 mb-8 max-w-2xl mx-auto">
               Passionné par la création de solutions innovantes et performantes. Je transforme vos
               idées en applications web modernes et évolutives.
             </p>
