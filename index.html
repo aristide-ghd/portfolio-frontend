@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="fr">
   <head>
+    <!-- === Métadonnées principales === -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aristide GBOHAÏDA - Développeur Backend & Fullstack</title>
@@ -8,15 +9,18 @@
     <meta name="author" content="Aristide GBOHAÏDA" />
     <meta name="keywords" content="développeur, backend, fullstack, react, node.js, portfolio" />
 
+    <!-- === Open Graph (réseaux sociaux) === -->
     <meta property="og:title" content="Aristide GBOHAÏDA - Développeur Backend & Fullstack" />
     <meta property="og:description" content="Portfolio: projets, compétences et expériences en développement backend et fullstack." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/image.jpeg" />
 
+    <!-- === Twitter Card === -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="" />
     <meta name="twitter:image" content="/image.jpeg" />
 
+    <!-- === Fonts et icônes === -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -25,25 +29,30 @@
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#667eea" />
 
-    <!-- Préchargement du thème pour éviter le flash -->
+    <!-- === Préchargement du thème pour éviter le flash de mode clair/sombre === -->
     <script>
       (function() {
-        const storageKey = 'portfolio-theme';
-        const defaultTheme = 'system';
+        const storageKey = 'portfolio-theme'; // clé utilisée dans localStorage
+        const defaultTheme = 'system'; // thème par défaut si aucune valeur stockée
         let theme = localStorage.getItem(storageKey) || defaultTheme;
 
+        // Si le thème est "system", détecte la préférence du système
         if (theme === 'system') {
           theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
         }
 
+        // Applique le thème au <html> avant le rendu React
         document.documentElement.classList.add(theme);
       })();
     </script>
   </head>
 
   <body>
+    <!-- Conteneur principal de l'application React -->
     <div id="root"></div>
+
+    <!-- Script principal de l'application -->
     <script type="module" src="/src/main.tsx"></script>
-    <!-- Service worker registration is handled in src/main.tsx and only runs in production -->
+    <!-- Le service worker est enregistré via main.tsx uniquement en production -->
   </body>
 </html>
