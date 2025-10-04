@@ -1,12 +1,7 @@
 /**
  * ContactForm.tsx
  *
- * Composant de formulaire de contact utilisé sur la page Contact.
- * 
- * - Gère les champs : name, email, message
- * - Affiche un toast de confirmation après l'envoi
- * - Empêche l'envoi multiple grâce à `isSubmitting`
- * - Utilise les composants UI personnalisés : Input, Textarea, Button
+ * Formulaire de contact connecté au backend Express
  */
 
 import { useState } from 'react';
@@ -15,60 +10,72 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Send } from 'lucide-react';
+import axios from 'axios';
 
 const ContactForm = () => {
-  const { toast } = useToast(); // Hook personnalisé pour afficher des notifications
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
-    name: '',     // Nom complet
-    email: '',    // Email de l'utilisateur
-    message: '',  // Message à envoyer
+    name: '',
+    email: '',
+    message: '',
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false); // Indique si le formulaire est en cours d'envoi
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  /**
-   * handleSubmit
-   *
-   * Gestionnaire de l'envoi du formulaire
-   * - Empêche le comportement par défaut
-   * - Active le spinner via isSubmitting
-   * - Simule un envoi asynchrone
-   * - Affiche un toast de confirmation
-   * - Réinitialise le formulaire
-   */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission (ex: envoi vers un backend)
-    setTimeout(() => {
+    try {
+      // 🔹 Envoi vers ton backend (adapter l’URL si nécessaire)
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/contact/register_form`,
+        formData
+      );
+
+      // 🔹 Affiche message succès
       toast({
-        title: 'Message envoyé !',
-        description: 'Je vous répondrai dans les plus brefs délais.',
+        title: '✅ Message envoyé !',
+        description: response.data?.message || 'Merci pour votre message, je vous répondrai vite.',
       });
 
-      // Réinitialisation des champs
+      // 🔹 Reset du formulaire
       setFormData({ name: '', email: '', message: '' });
+    } catch (error: unknown) {
+      console.error(error);
+
+    // Vérifie si c’est une erreur Axios
+    if (axios.isAxiosError(error)) {
+      toast({
+        title: '❌ Échec de l’envoi',
+        description:
+          error.response?.data?.message ||
+          'Une erreur est survenue. Veuillez réessayer plus tard.',
+        variant: 'destructive',
+      });
+    } else {
+      toast({
+        title: '❌ Erreur inconnue',
+        description: 'Une erreur inattendue est survenue.',
+        variant: 'destructive',
+      });
+    }
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
-  /**
-   * handleChange
-   *
-   * Met à jour l'état formData à chaque modification de champ
-   */
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
   };
 
-  // -------------------- RENDER --------------------
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Champ Nom complet */}
+    <form onSubmit={handleSubmit} className="space-y-6 max-w-lg mx-auto">
       <div>
         <label htmlFor="name" className="block text-sm font-medium mb-2">
           Nom complet
@@ -83,7 +90,6 @@ const ContactForm = () => {
         />
       </div>
 
-      {/* Champ Email */}
       <div>
         <label htmlFor="email" className="block text-sm font-medium mb-2">
           Email
@@ -99,7 +105,6 @@ const ContactForm = () => {
         />
       </div>
 
-      {/* Champ Message */}
       <div>
         <label htmlFor="message" className="block text-sm font-medium mb-2">
           Message
@@ -115,8 +120,13 @@ const ContactForm = () => {
         />
       </div>
 
-      {/* Bouton d'envoi */}
-      <Button type="submit" variant="hero" size="lg" disabled={isSubmitting} className="w-full">
+      <Button
+        type="submit"
+        variant="hero"
+        size="lg"
+        disabled={isSubmitting}
+        className="w-full flex items-center gap-2"
+      >
         <Send className="h-5 w-5" />
         {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
       </Button>
