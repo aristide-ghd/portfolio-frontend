@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import project1 from '@/assets/project1.jpg';
 import project2 from '@/assets/project2.jpg';
 import imageTchat from '@/assets/imgTchat.png';
+import bEasy from '@/assets/b-easy.png';
 import project3 from '@/assets/project3.jpg';
 
 const Projects = () => {
@@ -16,14 +17,14 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'Dashboard Analytics',
+      title: 'Boutique Easy',
       description:
-        'Application web moderne pour la visualisation de données en temps réel avec graphiques interactifs et tableaux de bord personnalisables. Intègre des fonctionnalités avancées de filtrage et d\'export de données.',
-      image: project1,
-      tags: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
+        'Application de gestion de boutique tout-en-un (Monorepo). Tableau de bord analytique, gestion des transactions, suivi des dettes clients (Carnet de Crédit) et interface moderne avec React 19 & Tailwind v4.',
+      image: bEasy,
+      tags: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Tailwind CSS'],
       category: 'Fullstack',
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
+      githubUrl: 'https://github.com/aristide-ghd/boutique_easy',
+      // liveUrl removed as valid live url is not yet available
       featured: true,
     },
     {
@@ -91,8 +92,8 @@ const Projects = () => {
       </Helmet>
       <Navbar />
 
-  {/* Hero */}
-  <section className="pt-20 md:pt-32 pb-20 gradient-subtle">
+      {/* Hero */}
+      <section className="pt-20 md:pt-32 pb-20 gradient-subtle">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">Mes Projets</h1>

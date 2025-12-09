@@ -11,6 +11,8 @@ import InstallPrompt from '@/components/InstallPrompt';
 import heroImage from '@/assets/hero-bg.jpg';
 import project1 from '@/assets/project1.jpg';
 import imageTchat from '@/assets/imgTchat.png';
+import bEasy from '@/assets/b-easy.png';
+import project2 from '@/assets/project2.jpg';
 import project3 from '@/assets/project3.jpg';
 
 const Index = () => {
@@ -29,13 +31,12 @@ const Index = () => {
 
   const featuredProjects = [
     {
-      title: 'Dashboard Analytics',
+      title: 'Boutique Easy',
       description:
-        'Application web moderne pour la visualisation de données en temps réel avec graphiques interactifs et tableaux de bord personnalisables.',
-      image: project1,
-      tags: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
-      githubUrl: 'https://github.com',
-      liveUrl: 'https://example.com',
+        'Application de gestion de boutique tout-en-un (Monorepo). Tableau de bord analytique, gestion des transactions, suivi des dettes clients (Carnet de Crédit) et interface moderne avec React 19 & Tailwind v4.',
+      image: bEasy,
+      tags: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Tailwind CSS'],
+      githubUrl: 'https://github.com/aristide-ghd/boutique_easy',
       featured: true,
     },
     {
@@ -233,8 +234,8 @@ const Index = () => {
         </div>
       </section>
 
-  <Footer />
-  <InstallPrompt />
+      <Footer />
+      <InstallPrompt />
     </div>
   );
 };
