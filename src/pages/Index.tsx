@@ -66,7 +66,7 @@ const Index = () => {
         <meta property="og:title" content="Aristide GBOHAÏDA — Développeur Backend & Fullstack" />
         <meta property="og:description" content="Portfolio professionnel: projets, compétences et expériences." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/image.jpeg" />
+        <meta property="og:image" content="/portfolio.jpg" />
         <script type="application/ld+json">{JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'Person',
@@ -94,8 +94,8 @@ const Index = () => {
         <div className="container mx-auto px-4 py-20 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-6">
-              <div className="w-32 h-32 mx-auto rounded-full bg-gradient-primary p-1 shadow-elegant">
-                <img src="/image.jpeg" alt="Portrait d'Aristide GBOHAÏDA" className="w-full h-full rounded-full object-cover" decoding="async" loading="lazy" />
+              <div className="w-56 h-56 mx-auto rounded-full bg-gradient-primary p-1 shadow-elegant">
+                <img src="/portfolio.jpg" alt="Portrait d'Aristide GBOHAÏDA" className="w-full h-full rounded-full object-cover" style={{ objectPosition: 'center 20%' }} decoding="async" loading="lazy" />
               </div>
             </div>
 
